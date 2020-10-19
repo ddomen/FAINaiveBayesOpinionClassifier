@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+@media print { .print-break {page-break-after: always;} }
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="daniele-domenichelli---unibo-unibo"><strong>DANIELE DOMENICHELLI - UNIBO</strong> <img src="images/unibo_res.png" alt="UNIBO"></h1>
+<h2 id="foundamentals-of-artificial-intelligence-and-knowledge-representation---project"><strong>FOUNDAMENTALS of ARTIFICIAL INTELLIGENCE and KNOWLEDGE REPRESENTATION - PROJECT:</strong></h2>
+<h2 id="developing-a-simple-naive-bayesian-network-classifier-for-detecting-social-media-and-news-paper-immigration-opinion-italian-language"><em>Developing a simple Naive Bayesian Network Classifier for detecting social media and news paper immigration opinion (Italian language)</em></h2>
+<h2 id="index">Index:</h2>
+<ol>
+<li><a href="#1-introduction">Introduction</a></li>
+<li><a href="#2-data-processing">Data Mining</a>
+<ol>
+<li><a href="#21-entries">Entries</a></li>
+<li><a href="#22-classification">Classification</a></li>
+<li><a href="#23-validation">Validation</a></li>
+</ol>
+</li>
+<li><a href="#3-bayesian-network">Bayesian Network</a>
+<ol>
+<li><a href="#31-model-topology">Model Topology</a></li>
+<li><a href="#32-text-classifier-interface">Text Classifier Interface</a></li>
+<li><a href="#33-graph-model-pgmpy">Graph Model (pgmpy)</a></li>
+<li><a href="#34-simplified-table-model">Simplified Table Model</a></li>
+</ol>
+</li>
+<li><a href="#4-software-requirements">Software Requirements</a></li>
+<li><a href="#5-comparisons-remarks-conclusions">Comparisons, Remakrs, Conclusions</a></li>
+</ol>
+<h2 id="1-introduction">1 Introduction:</h2>
+<p>The project was born from the needings of some collegues of Sociology University of Macerata (UniMC) to collect and extract informations from articles and social media in order to percieve the differences of opinions about immigration in those means. All the articles explored are in Italian language due to the purpose of sociologist thesis.</p>
+<p>The aim of this work is to explore and illustrate how the Probabilistic Graphical Model (graph based network) beahavies and perform with a huge ammount of data and relations, such as the text classification, and offer a different approach to it.</p>
+<p>The initial project was programmed in <code>NodeJS</code>, but for the purpose of the studied case, it had been converted in <code>Python</code>. For this reason the model exploration was not linear, I have tried to implement the same network built in the sociology project, but with the suggested <a href="https://pgmpy.org/">pgmpy</a> python library.</p>
+<p><a href="#index">Back to Index</a></p>
+<div class="print-break"></div>
+<h2 id="2-data-collection">2 Data Collection:</h2>
+<p>The data collection</p>
+<p><a href="#index">Back to Index</a>
+The data collection was led over a set of hosts through a dedicated web crawler, which explores articles, posts and tweets present in a web service. In particular a search of the word <em>&quot;immigrazione&quot;</em> (immigration) was performed over the internal search engines of each host, using the exposed API of the service where present (expecially in social medias).</p>
+<p>The hosts are:</p>
+<ul>
+<li>La Repubblica <em>(newspaper)</em></li>
+<li>Il Corriere <em>(newspaper)</em></li>
+<li>Il Sole 24 ore <em>(newspaper)</em></li>
+<li>Facebook <em>(social media)</em></li>
+<li>Tweetter <em>(social media)</em></li>
+</ul>
+<h3 id="21-entries">2.1 Entries</h3>
+<p>Every article, post or tweet is then processed to take the shape of an <code>entry</code>: each of them will store the source or host of the content, the date when it was publicated, a textual representation of the content (removing any markup language or non valid character from the corpe) and, when available, a short description called title. Each <code>entry</code> is then processed to obtain data usefull in the next steps of the analysis.</p>
+<pre class="hljs"><code><div>Entry = {
+    --- article / post / tweet data --- 
+    source: string
+    date:   date-time
+    text:   string
+    title:  string
+    
+    --- extrapolated data ---
+    tokens: array&lt;string&gt;
+    frequency table: map&lt;string - int&gt;
+    score: int
+    category: string
+}
+</div></code></pre>
+<p>Anytime, the word <code>entry</code> will refer to this kind of data structure.</p>
+<p>The text will be then processed and tokenized, removing invalid or special characters and dividing words into tokens by splitting them with spaces.</p>
+<p>Further analysis of the dataset were applied, but only those related to this work, useful to understand the chosen process, are reported.</p>
+<p><a href="#index">Back to Index</a></p>
+<div class="print-break"></div>
+<h2 id="22-classification">2.2 Classification</h2>
+<p>In order to understand the opinion from the <code>entry</code> body text, a first division was made by looking for certain keywords or keyphrases in the full text, giving a predetermined score:</p>
+<ul>
+<li><code>Positive</code>: any behaviour that favours social inclusion of immigrants</li>
+<li><code>Negative</code>: any behaviour that is ostile or disfavours any immigrant activity</li>
+<li><code>Neutral</code>: none of the two precendent categories</li>
+</ul>
+<p>Each positive word or sentence found will give <code>+1</code> point to the final score, while a negative one will give <code>-1</code> point. At the end, a positive sum will fall into the <code>positive</code> category, a negative in the <code>negative</code> one, a strictly <code>0</code> sum will fall into the <code>neutral</code> category.</p>
+<p>From these three categories were extrapolated two types of dataset: a <code>neutral dataset</code> containing any category of <code>entry</code>, and a <code>direct dataset</code> containing just not neutral content. This division was adopted to deeply analyze the interesting content, because just about the <code>3%</code> of the whole dataset fell into the <code>direct dataset</code>.</p>
+<p><a href="#index">Back to Index</a></p>
+<h2 id="23-validation">2.3 Validation</h2>
+<p>In order to ensure the validity of this classification, a sample of <code>1000 entries</code>, chosen with opportune criteria, were controlled by the sociologists in order to find out if some of them unintentionally misled the informations and the classification toward any particular direction. An accuracy of <code>89.2%</code> was measured in the final evaluation <em>(almost <code>9/10 entries</code> were successfully classified)</em>.</p>
+<p><a href="#index">Back to Index</a></p>
+<h2 id="3-bayesian-network">3 Bayesian Network:</h2>
+<p>A Bayesian Network is a Probabilistic Graphical Model representing the relations between a set of random variables, usually using a graph model to represent them. Each node stores a random variable, while each edge represents the relation of dependency between two of them.</p>
+<p>In particular a Bayesian Network is an acyclic graph: there are no interdependant random variables, such that any node is not dependent from any of its ancestors. Each event is then represented by a single random variable, so it is stored in a node. Each node contains the probability table of its variable given the values of its parents (<code>P(V|Parents)</code>). This graphical model can better highlight which events are dependant or independant, describing the causality between them.</p>
+<p>It sounds a nice idea to extract the probability to find certain words or sentences inside a text body, so it is possible to build a probabilistic model based on the presence of certain tokens. The full set of the tokens in the dataset is called vocabulary. The problem is that building such a model for all the possible sentences in the full dataset is as expensive as impossible to afford. Each word can create a <em>(not always compute)</em> sentence with any of the other words in the whole dataset, and this means that the model will grow at least exponentially with the size of the vocabulary.</p>
+<div class="print-break"></div>
+<p><strong>Bayes Model</strong></p>
+<p><img src="images/3_0_1.gif" alt="equation"></p>
+<p><code>P(Text)</code> is constant and we are interested in <code>P(C)</code>, so we need just to compute <code>P(C, W1, ..., Wn)</code></p>
+<p>Exploiting the joint probability and the chain rule:</p>
+<p><img src="images/3_0_2.gif" alt="equation"></p>
+<p>but since the number of these operations is proportional to <code>O(z^2)</code> this will have an unaffordable computation time.</p>
+<p><strong>Naive Bayesian Network</strong></p>
+<p>The first possible semplification is to eliminate interdependency between words. This means that the model describe the text and any permutation of it at the same way: <em>&quot;Thomas Bayes was a mathematician&quot;</em> and <em>&quot;mathematician was Bayes a Thomas&quot;</em> are modelled as the same way, beyond the correctness of the sentence, giving the same probability to belong to a certain category. This model insight is that no matter if the events are structured <em>(in time or space for example)</em>, it just metters how much they occur.</p>
+<p>The model that uses this semplification takes the name of Naive Bayesian Network. The difference with the normal Bayesian Network is that any node in the graph cannot share any descendant with the others, or, in other words, given two nodes there are no intersecting path connecting them, where an intersection is a node shared between two paths <em>(excluding initial and final nodes)</em>.</p>
+<p><strong>Naive Bayes Model</strong></p>
+<p>To the previous equations we can add the interindependency (or conditional independence assumption) of the events such that:</p>
+<p><img src="images/3_0_3.gif" alt="equation"></p>
+<p>This completely boils down our previous equation to</p>
+<p><img src="images/3_0_4.gif" alt="equation"></p>
+<p>The current number of operations become just <code>O(z)</code>, pretty affordable even with huge number of <code>z</code>.</p>
+<div class="print-break"></div>
+<p><strong>Naive Bayesian Network for Classification</strong></p>
+<p>At this point, it is possible to express the previous probability in term of a series of likelihood ratios:</p>
+<p><img src="images/3_0_5.gif" alt="equation"></p>
+<p><img src="images/3_0_6.gif" alt="equation"></p>
+<p>It is now easy to see that a certain text belongs to the category <code>C</code> if the ratio is greater (or equal) than <code>1</code>. The probability to belong to a certain category <code>C</code> is given by the ammount of events (<code>entries</code> in this case) labeled in the dataset, while that of not belonging to <code>C</code> is just the complementary of the first, <code>1 - P(C)</code>. The algorithm is just left to calculate the probability to belong to that category at the posterior of the word <code>Wi</code> occuring.</p>
+<p><a href="#index">Back to Index</a></p>
+<h3 id="31-model-topology">3.1 Model Topology</h3>
+<p>It is important to understand how the model builds up while classifying a text:</p>
+<p>It starts with the category node. After each word is added to the model, new nodes become parents of the category node, inserting a new row in its table. At the end, the category node table will store the probability of each word in the vocabulary to belong to a certain category.</p>
+<p><img src="images/3_1_1.gif" alt="graph"></p>
+<div class="print-break"></div>
+<p><strong>Category Node Table</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category 1</td>
+<td style="text-align:center">15%</td>
+</tr>
+<tr>
+<td>Category 2</td>
+<td style="text-align:center">7%</td>
+</tr>
+<tr>
+<td>...</td>
+<td style="text-align:center">...</td>
+</tr>
+<tr>
+<td>Category k</td>
+<td style="text-align:center">11%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Word Node Table</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">Category 1</th>
+<th style="text-align:center">...</th>
+<th style="text-align:center">Category k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Word i</td>
+<td style="text-align:center">15%</td>
+<td style="text-align:center">...</td>
+<td style="text-align:center">7%</td>
+</tr>
+</tbody>
+</table>
+<p>As shown in the word nodes, the table will store just the probability of the word to appear in a generic text. Since we are just interested in inserting a given text into the most probable category, we can ignore any word node table.</p>
+<div class="print-break"></div>
+<h3 id="32-text-classifier-interface">3.2 Text Classifier Interface:</h3>
+<p>In order to compare different models, it was defined an interface describing the task that the classifier should do over the data:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Abstract class of a Text Classifier</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TextClassifier</span>:</span>
+    <span class="hljs-comment"># return the probability of a given token to belong a given category:</span>
+    <span class="hljs-comment"># P(W1 | C)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">token_probability</span><span class="hljs-params">(self, token: str, category: str)</span> -&gt; float:</span> <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-comment"># return the probability of the given category:</span>
+    <span class="hljs-comment"># P(C)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">category_probability</span><span class="hljs-params">(self, category: str)</span> -&gt; float:</span> <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-comment"># retrive the probability table of the given text</span>
+    <span class="hljs-comment"># without knowing the probability of the category (no prior evidence):</span>
+    <span class="hljs-comment"># P(C | W1, ..., Wn)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">word_probability</span><span class="hljs-params">(self, text: str)</span> -&gt; DataFrame:</span> <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-comment"># retrive the probability table of the given text</span>
+    <span class="hljs-comment"># knowing the probability of categories (prior evidence):</span>
+    <span class="hljs-comment"># P(C) * P(C | W1, ..., Wn)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">probability</span><span class="hljs-params">(self, text: str)</span> -&gt; DataFrame:</span> <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-comment"># retrive the most probable category of the given text,</span>
+    <span class="hljs-comment"># using the unconditioned probability:</span>
+    <span class="hljs-comment"># P(C | W1, ..., Wn)</span>
+    <span class="hljs-comment">#</span>
+    <span class="hljs-comment"># If categoryEvidence is set to True, it takes in account</span>
+    <span class="hljs-comment"># the current probability to belong to a category:</span>
+    <span class="hljs-comment"># P(C) * P(C | W1, ..., Wn)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict</span><span class="hljs-params">(self, text: str, categoryEvidence=False)</span> -&gt; (str, float):</span> <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-comment"># learn (or store) probabilities for tokens extracted by the given text(s) or document(s)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fit</span><span class="hljs-params">(self,
+        text: Union[str, Iterable[str], Iterable[Data], DataFrame],
+        category: Union[str, Iterable[str]]=None
+    )</span> -&gt; TextClassifier:</span> <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-comment"># return a sorted by probability table with</span>
+    <span class="hljs-comment"># tokens as rows and categories as columns,</span>
+    <span class="hljs-comment"># for the given categories</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">words</span><span class="hljs-params">(self, categories: Union[str, Iterable[str]])</span> -&gt; DataFrame:</span> <span class="hljs-keyword">pass</span>
+</div></code></pre>
+<p>In such way it is possible to abstract the process of elaborating the probability query to the underling implementation. This will be fundamental while switching from the <code>pgmpy graph model</code> to the <code>simplified table model</code> and viceversa.</p>
+<p><a href="#index">Back to Index</a></p>
+<h3 id="33-graph-model-pgmpy">3.3 Graph Model (pgmpy):</h3>
+<p>The chosen implementation for the Probability Graphical Model used in this work is the <a href="https://pgmpy.org/">pgmpy</a> library. This is one of the most broad and supported library for PGM models for python. It indeed supports the Naive Bayes Network.</p>
+<p>In order to generate the model with the library, it is necessary to write every conditional probability distribution table (<code>TabularCPD</code>) by hand. This is quite easy when we are generating the table for the word node, because it is possible just to leave it with random values, as it doesn't contain any text classification information.</p>
+<pre class="hljs"><code><div>word_i_cpd = TabularCPD(
+    <span class="hljs-comment"># calling variable as the token associated to the word</span>
+    variable = word_i_token,
+    <span class="hljs-comment"># variable cardinality: 2 &lt;=&gt; present/absent</span>
+    variable_card = <span class="hljs-number">2</span>,
+    <span class="hljs-comment"># filling probability values with initial uniform probability</span>
+    <span class="hljs-comment"># these values will be tuned by the algorithm at learning time (fit)</span>
+    values = [ [<span class="hljs-number">0.5</span>, ..., <span class="hljs-number">0.5</span>], [<span class="hljs-number">0.5</span>, ..., <span class="hljs-number">0.5</span>] ],
+    <span class="hljs-comment"># associate the relation parent-&gt;child</span>
+    <span class="hljs-comment"># from this node to the category node</span>
+    evidence=[category_token],
+    <span class="hljs-comment"># set the cardinality of the child node (number of categories)</span>
+    evidence_card=[category_number]
+)
+</div></code></pre>
+<p>In the same way, defining the table of the category node is even simpler, because it isn't needed to specify relationships as parent node:</p>
+<pre class="hljs"><code><div>category_cpd = TabularCPD(
+    <span class="hljs-comment"># a special unique token that define the category node</span>
+    variable = category_token,
+    <span class="hljs-comment"># number of categories</span>
+    variable_card = category_number,
+    <span class="hljs-comment"># these will be the values associated with entries statistics</span>
+    <span class="hljs-comment"># they store the probability of a category</span>
+    <span class="hljs-comment"># to get randomly extracted from the dataset</span>
+    values = [ [<span class="hljs-number">1</span>/category_number, ..., <span class="hljs-number">1</span>/category_number] ]
+)
+</div></code></pre>
+<p>Now all the defined CPDs must be inserted in the graph of the model and finally the graph integrity will be checked:</p>
+<pre class="hljs"><code><div>model.add_cpds(word_1_cpd, word_2_cpd, ..., word_n_cpd, category_cpd)
+model.check_model()
+</div></code></pre>
+<p>The fitting process is already defined by the library, the only needed operation is to reshape the tokens found in text into a boolean matrix of <code>0</code>s and <code>1</code>s, representing the presence/absence of the token in the content. Indeed <code>pgmpy fit</code> method needs as input a <code>pandas.DataFrame</code> matrix, with each row representing an <code>entry</code> and each column a token. Before feeding the model, it is mandatory to define all the tables related to the token found in the passed dataset, and rearrange the table relative to the category node, in order to define all the relations with the just inserted node.</p>
+<blockquote>
+<p><em>&quot;Anything that can possibly go wrong... Does.&quot;</em></p>
+<p><cite><strong>Edward Murphy</strong></cite></p>
+</blockquote>
+<p>This code worked perfectly on a tiny test set of hundreds of tokens. But while learning the real test set, composed by tens of thousands tokens, the model breaks down: <code>pgmpy</code> is not designed to build such a huge network. Every time a node is inserted, the model checks its validity and also if the insertion of that node will violate the graph rules.</p>
+<p>The current implementation of the library has a node insertion complexity proportional to <code>O(n^2)</code>, where <code>n</code> is the number of the already inserted nodes. This complexity is undetectable for tiny models even if they are complex. But a simple network, like the one described before, is unaffordable with a large dimension of the dataset.</p>
+<p>Even after passing the long time of the learning, the model is completely unusable in a short period of time. The node visiting in an inference is also proportional to <code>O(n^2)</code>, so any query passed to the network will take almost the same time of the last steps of the learning process.</p>
+<p>The <code>pgmpy</code>'s designer decided to give the most flexibility of the model in order to build complex systems but sacrificing its efficency. Unluckly this library is totally unaware of the simplicity of described model and it cannot perform any type of semplification over it.</p>
+<p><a href="#index">Back to Index</a></p>
+<div class="print-break"></div>
+<h2 id="34-simplified-table-model">3.4 Simplified Table Model:</h2>
+<p>In view of the slowness of the <code>graph model</code> it is possible to build a <code>table model</code> out of the previous described network.</p>
+<p>The table will contains three metadata to track the global statistics regarding the learnt <code>entries</code> and all the probability data associated with each token of those, inserted as rows and columns.</p>
+<p>The first pythonic implementation made use of a <code>list</code> to store sighted tokens and a <code>numpy</code> array to store the whole probability distribuition of tokens over categories. Even this modality resulted into a very slow training model, but at least, once learnt the full dataset, at the test time was really fast. Analyzing the bottleneck of the program, it was found that looking for the presence of the token in the <code>list</code> is linear, but still too slow; also appending rows or columns to a <code>numpy</code> array is not efficient, inducing the whole system to be slow.</p>
+<p>Inspired by the <code>NodeJS</code> implementation, the tokens and the probabilities are stored in a simple <code>dict</code>. This data structure makes use of hashes to access underling array containing data. Computing the hash and accessing (read/write) the <code>dict</code> value of the given token have a constant complexity <code>O(1)</code>. The resultant system is more than <code>100</code> times faster then the first implementation and more than <code>2000</code> times faster than the <code>pgmpy graph model</code>. Still, the <code>python dict</code> is not a real lookup table, since when the interpreter tries to access a key location, it does not just compute the hash, but it ensures the accessing key object equals the table key object. For this reason the time is not really constant, but rather is <code>Ω(s)</code>, where <code>s</code> is the biggest hash colliding token length, in the worst case. Despite this slows down the algorithm, it always prevents the hash collision problem, giving a great speed improvement nevertheless.</p>
+<p>In addition, it was possible to optimize some operations specifically for a text classifier:</p>
+<ul>
+<li>
+<p><strong>Out Of Voucabulary (OOV)</strong></p>
+<p>Some tokens in the test set weren't present in the training set. For the <code>graph model</code> this would mean to add a node and check again all the already inserted nodes in the graph, that is a long ride because of the squared time complexity of the insertion. For the <code>table model</code> it is just needed to compute the hash of the token and check it in the <code>dict</code> table, if not present <code>0</code> occurencies are reported, otherwise the <code>dict</code> values table contains the occurencies to report.</p>
+</li>
+<li>
+<div class="print-break"></div>
+<p><strong>Laplacian Additive Smoothing Rule</strong></p>
+<p>The <em><strong>Add-One Smoothing</strong></em> or <em><strong>Laplacian Smoothing</strong></em>, a general case of the <em><strong>Lidstone Smoothing</strong></em>, is a pseudocount technique, based on the <em>rule of succession</em>, used to smooth categorical data. Expecially, this rule applies when a prior knowledge on the problem completely biases the outcome of the probability estimation, due to previous observations. The smooth, in the text classification context, applies in all of those sentences where there is a strong presence of a word appartaining to one class, when most of the other words are not seen in a class: suppose the probabilistic classifier learnt to classify the kind of a book. When it will be feed by a document, containing the sentence <em>"The first in history to make extensive use of mathematics were the Greeks"</em>, it will find the word <em>"history"</em> that was never previously seen, so it does not generate any weight for this classification; but it is still probable that the word <em>"history"</em> is contained in a maths book, even if this word is rarely present in a maths book, in respect of other types of documents. As a remedy, each word is pseudocounted as already present in all the classifications, in order to smooth the probability of unknown tokens for all the classes. This technique is also useful during the potentially unsupervised trainings to prevent the <em><strong>confirmation bias</strong></em> problems.
+<p><img src="images/3_4_1.gif" alt="equation"></p>
+<p><code>α</code> is the smoothing parameter, if <code>α = 0</code> no smoothing is applied (always taken strictly positive). In order to maintain the uniform distribution of the data <code>α</code> is usually taken as <code>1</code>. For this reason takes the name of <em><strong>Add-One Smoothing</strong></em>.</p>
+</li>
+<li>
+<p><strong>Log space probability</strong></p>
+<p>Since all the probability contributes of the words are numbers in the range <code>[0 - 1]</code> and the final probability is a weighted multiplication of them, it is likely probable to underflow the machine float capabilities, leading to <code>0</code> multiplication. This means that any time a word contribute is below the float minimal value of the machine it will floor the entire multiplication to <code>0</code>, even if in the text there are other very weighted words. A solution is to convert the probability contribution in the log space, so any multiplication is converted to an addition, more affordable for machine computations:</p>
+<p><img src="images/3_4_2.gif" alt="equation"></p>
+</li>
+</ul>
+<p><a href="#index">Back to Index</a></p>
+<div class="print-break"></div>
+<h2 id="4-software-requirements">4 Software Requirements:</h2>
+<p>The software requires:</p>
+<ul>
+<li><code>python 3.x</code></li>
+<li><code>pandas &gt;=1.x</code></li>
+<li><code>numpy &gt;=1.x</code></li>
+<li><code>pgmpy &gt;=0.1</code></li>
+</ul>
+<p>After installing <a href="https://www.python.org/">python 3</a> it is possible to install all the dependencies by running the command</p>
+<ul>
+<li>
+<p><em>Pip users:</em></p>
+<p><code>pip install -r requirements.txt</code></p>
+</li>
+<li>
+<p><em>Conda users:</em></p>
+<p><code>conda install --file requirements.txt</code></p>
+</li>
+</ul>
+<p>Notice that the project makes use of <code>python typing</code> annotations, make sure that your python interpreter implements them before use it <em>(usually standard installation of python 3.x does)</em>.</p>
+<em>Extract it to run or test the code!</em></p>
+<p><a href="#index">Back to Index</a></p>
+<div class="print-break"></div>
+<h2 id="5-comparisons-remarks-conclusions">5 Comparisons, Remarks, Conclusions</h2>
+<h3 id="comparisons"><strong>Comparisons</strong></h3>
+<p>After the full training over the dataset of both of the model, it was possible to compare them in term of time and space complexity.</p>
+<p><strong>Time Complexity:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Model</th>
+<th style="text-align:center">Training Direct Dataset</th>
+<th style="text-align:center">Training Neutral Dataset</th>
+<th style="text-align:center">Direct Test Time</th>
+<th style="text-align:center">Neutral Test Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pgmpy</td>
+<td style="text-align:center">4+ h</td>
+<td style="text-align:center">never completed</td>
+<td style="text-align:center">1 h / query</td>
+<td style="text-align:center">not calculated</td>
+</tr>
+<tr>
+<td style="text-align:center">table <code>list</code></td>
+<td style="text-align:center">40 min</td>
+<td style="text-align:center">1 h 45 min</td>
+<td style="text-align:center">800 ms / query</td>
+<td style="text-align:center">8.7 s /query</td>
+</tr>
+<tr>
+<td style="text-align:center">table <code>dict</code></td>
+<td style="text-align:center">6.5 s</td>
+<td style="text-align:center">8.9 s</td>
+<td style="text-align:center">120 ms / query</td>
+<td style="text-align:center">1.2 s / query</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<strong>Space Complexity:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Model</th>
+<th style="text-align:center">Direct Dataset</th>
+<th style="text-align:center">Neutral Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pgmpy</td>
+<td style="text-align:center">3.7 MB</td>
+<td style="text-align:center">never completed</td>
+</tr>
+<tr>
+<td style="text-align:center">table</td>
+<td style="text-align:center">1.6 MB</td>
+<td style="text-align:center">8.4 MB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="remarks"><strong>Remarks</strong></h3>
+<p>From the query results it is possible to infer that the most common words are <em>&quot;di, e, il, la, per, in, del, a, che, i&quot;</em>, those indeed occur each one more than <code>0.5%</code> of the entire vocabulary words, composed by nearby <code>41000</code> tokens.</p>
+<p>Just by playing with elaborated output probabilities, we can infer that the following words are almost present only in a <code>positive</code>-like <code>entry</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th style="text-align:center">ΔPositive / Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>soggiorno</td>
+<td style="text-align:center">99.88%</td>
+</tr>
+<tr>
+<td>permesso</td>
+<td style="text-align:center">99.81%</td>
+</tr>
+<tr>
+<td>rilascio</td>
+<td style="text-align:center">99.76%</td>
+</tr>
+<tr>
+<td>comma</td>
+<td style="text-align:center">99.74%</td>
+</tr>
+<tr>
+<td>colf</td>
+<td style="text-align:center">99.69%</td>
+</tr>
+<tr>
+<td>datore</td>
+<td style="text-align:center">99.67%</td>
+</tr>
+<tr>
+<td>lavoratore</td>
+<td style="text-align:center">99.63%</td>
+</tr>
+<tr>
+<td>possesso</td>
+<td style="text-align:center">99.61%</td>
+</tr>
+<tr>
+<td>regolarizzazione</td>
+<td style="text-align:center">99.56%</td>
+</tr>
+<tr>
+<td>procedura</td>
+<td style="text-align:center">99.54%</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+While these words were found mostly in <code>negative</code> classified <code>entries</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th style="text-align:center">ΔNegative / Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>incontrollata</td>
+<td style="text-align:center">98.21%</td>
+</tr>
+<tr>
+<td>moscovici</td>
+<td style="text-align:center">90.93%</td>
+</tr>
+<tr>
+<td>scozia</td>
+<td style="text-align:center">90.93%</td>
+</tr>
+<tr>
+<td>fabrizia</td>
+<td style="text-align:center">88.41%</td>
+</tr>
+<tr>
+<td>sollievo</td>
+<td style="text-align:center">86.11%</td>
+</tr>
+<tr>
+<td>marcellofoa</td>
+<td style="text-align:center">85.12%</td>
+</tr>
+<tr>
+<td>byoblu</td>
+<td style="text-align:center">85.12%</td>
+</tr>
+<tr>
+<td>albertobagnai</td>
+<td style="text-align:center">85.12%</td>
+</tr>
+<tr>
+<td>comunardo</td>
+<td style="text-align:center">85.12%</td>
+</tr>
+<tr>
+<td>edimburgo</td>
+<td style="text-align:center">83.98%</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+Another important remark is that the whole dataset was unbalanced, indeed the <code>negative entries</code> were slightly more than the <code>10%</code> of the whole set. This project was naively trained on a training set which maintened the distribution of the data, and then evaluated over a validation set, composed by the <code>5%</code> of the initial set, with the same distribuition. The final measured accuracy was <code>62.59%</code> for the <code>direct model</code> and <code>77.43%</code> for the <code>neutral model</code>; the <code>pgmpy model</code> accuracy was not measured due to the time needed for just one query <em>(nearby <code>53%</code> over <code>10</code> samples)</em>.</p>
+<div class="print-break"></div>
+<h3 id="conclusions"><strong>Conclusions</strong></h3>
+<p>After the whole work, it is possible to conclude that <code>pgmpy</code> was not meant to be used in text classification problems, due to the big dimension, granularity and interindependence of the data. The library still offers a good way to work with probabilistic models, mostly in a well known and defined space.</p>
+<p>As stated by an author of the library in one <a href="https://github.com/pgmpy/pgmpy/issues/1078">pgmpy github issue page</a></p>
+<blockquote>
+<p>Since pgmpy uses multi-dimensional numpy arrays for representing CPDs, if a CPD has more than <code>32</code> variables (<code>31</code> parents) then you won't be able to use pgmpy</p>
+<p><em>-- Khalibartan</em></p>
+</blockquote>
+<p>On the other hand, a lower level dedicated approach can be used to exploit a Naive Bayesian Network Model, predicting the opinion of a given text.</p>
+<p>Anyway the probabilistic approach is hardly influenced by the <em>&quot;past experience&quot;</em> over the training: it is possible to deduce from the <code>neutral model</code> accuracy, in respect of the <code>direct model</code> accuracy, that the more the dataset is unbalanced (more <code>neutral entries</code> then others) and the more the accuracy will raise, due to statistical effects.</p>
+<p>In the end, probabilistic models tend to overfit the training dataset, and that leads to a very wide importance on its choice: the more the dataset represents the observed system the better will be the model.</p>
+<p><a href="#index">Back to Index</a></p>
+
+</body>
+</html>

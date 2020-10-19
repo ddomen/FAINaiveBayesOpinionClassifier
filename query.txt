@@ -1,0 +1,136 @@
+=== NAIVE BAYES CUSTOM IMPLEMENTATION ===
+*** DIRECT MODEL ***
+
+        References:
+            P = probability
+            C = category (positive / negative)
+            w = word
+        
+        positive probability => P(C=positive): 88.27%
+        negative probability => P(C=negative): 11.73%
+
+        10 most used words => P(w|C):
+
+        positive:
+			"di":	3.47%
+			"e":	2.23%
+			"il":	1.73%
+			"la":	1.49%
+			"per":	1.22%
+			"in":	1.21%
+			"del":	1.08%
+			"a":	1.00%
+			"che":	0.89%
+			"i":	0.88%
+        
+        negative:
+			"di":	0.28%
+			"e":	0.21%
+			"il":	0.17%
+			"la":	0.16%
+			"a":	0.10%
+			"che":	0.10%
+			"in":	0.10%
+			"i":	0.10%
+			"per":	0.09%
+			"del":	0.09%
+        
+        difference => [ P(w|C=positive) - P(w|C=negative) ] / P(w):
+
+			"soggiorno":  		+99.77%
+			"permesso":  		+99.65%
+			"rilascio":  		+99.56%
+			"comma":  		+99.52%
+			"colf":  		+99.43%
+			"datore":  		+99.40%
+			"lavoratore":  		+99.33%
+			"possesso":  		+99.29%
+			"regolarizzazione":	+99.19%
+			"procedura":  		+99.15%
+
+			"incontrollata":	-98.21%
+			"moscovici": 		-90.93%
+			"scozia": 		-90.07%
+			"fabrizia": 		-88.42%
+			"remain": 		-86.97%
+			"aaaahh": 		-86.11%
+			"sollievo": 		-86.11%
+			"marcellofoa": 		-85.12%
+			"byoblu": 		-85.12%
+			"comunardo": 		-85.12%
+
+    
+*** NEUTRAL MODEL ***
+
+        References:
+            P = probability
+            C = category (positive / negative / neutral)
+            w = word
+        
+        positive probability => P(C=positive): 2.05%
+        negative probability => P(C=negative): 0.27%
+		neutral probability => P(C=neutral): 97.67%
+
+        10 most used words => P(w|C):
+
+        positive:
+			"di":	0.07%
+			"e":	0.04%
+			"il":	0.03%
+			"la":	0.03%
+			"per":	0.02%
+			"in":	0.02%
+			"del":	0.02%
+			"a":	0.02%
+			"che":	0.02%
+			"i":	0.02%
+        
+        negative:
+			"di":	0.00%
+			"e":	0.00%
+			"il":	0.00%
+			"la":	0.00%
+			"a":	0.00%
+			"che":	0.00%
+			"in":	0.00%
+			"i":	0.00%
+			"per":	0.00%
+			"del":	0.00%
+        
+		neutral:
+			"di":	2.78%
+			"e":	2.13%
+			"il":	1.66%
+			"la":	1.49%
+			"in":	1.26%
+			"a":	1.15%
+			"i":	0.96%
+			"del":	0.96%
+			"per":	0.93%
+			"che":	0.82%
+
+        difference => [ P(w|C=positive) - P(w|C=negative) ] / P(w):
+
+			"soggiorno":  		+99.88%
+			"permesso":  		+99.81%
+			"rilascio":  		+99.76%
+			"comma":  			+99.74%
+			"colf":  			+99.69%
+			"datore":  			+99.67%
+			"lavoratore":  		+99.63%
+			"possesso":  		+99.61%
+			"regolarizzazione":	+99.56%
+			"procedura":  		+99.54%
+
+			"incontrollata":	-96.75%
+			"moscovici": 		-83.99%
+			"scozia": 			-82.53%
+			"fabrizia": 		-79.76%
+			"remain": 			-77.37%
+			"sollievo": 		-75.95%
+			"aaaahh": 			-75.95%
+			"comunardo": 		-74.34%
+			"albertobagnai":	-74.34%
+			"marcellofoa": 		-74.34%
+
+    
